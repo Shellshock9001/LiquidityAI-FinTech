@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { queries, logAudit } from '../db.js';
 import { authenticate, generateTokens, hashToken } from '../middleware/auth.js';
 import { computeRiskScore } from '../riskEngine.js';
+import { sendSecurityAlert } from '../lib/email.js';
 
 const router = Router();
 
@@ -98,6 +99,13 @@ router.post('/login', (req, res) => {
             if (attempts >= 5) {
                 queries.lockUser.run(user.id);
                 logAudit({ actorId: user.id, actorEmail: user.email, action: 'ACCOUNT_LOCKED', targetType: 'user', targetId: user.id, targetEmail: user.email, details: { attempts }, ip: req.ip, outcome: 'failure' });
+
+sendSecurityAlert(
+  user.email,
+  user.display_name,
+  `Your account was locked after 5 failed login attempts. IP: ${req.ip}`
+).catch(err => console.error('Email failed', err.message));
+
                 return res.status(423).json({ error: 'Account locked after 5 failed attempts', code: 'LOCKED', minutesLeft: 15 });
             }
 

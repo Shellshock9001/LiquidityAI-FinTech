@@ -1,3 +1,4 @@
+import { sendSignupApproved, sendSignupDenied, sendPasswordReset } from '../lib/email.js';
 import { Router } from 'express';
 import bcryptjs from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
@@ -73,6 +74,11 @@ router.patch('/:id/approve', authenticate, requirePermission('users.approve'), (
             ip: req.ip,
         });
 
+sendSignupApproved(target.email, target.display_name).catch(err =>
+  console.error('Email failed:', err.message)
+);
+res.json({ message: `User approved as ${role}` });
+
         res.json({ message: `User approved as ${role}` });
     } catch (err) {
         res.status(500).json({ error: 'Approval failed' });
@@ -97,6 +103,16 @@ router.patch('/:id/deny', authenticate, requirePermission('users.approve'), (req
             details: { reason, riskScore: target.risk_score },
             ip: req.ip,
         });
+
+sendSignupDenied(target.email, target.display_name, reason).catch(err =>
+  console.error('Email failed:', err.message)
+);
+res.json({ message: 'User denied' });
+
+sendSignupDenied(target.email, target.display_name, reason).catch(err =>
+  console.error('Email failed:', err.message)
+);
+res.json({ message: 'User denied' });
 
         res.json({ message: 'User denied' });
     } catch (err) {
@@ -221,6 +237,12 @@ router.patch('/:id/force-reset', authenticate, requirePermission('users.force_re
             action: 'FORCE_PASSWORD_RESET', targetType: 'user', targetId: target.id, targetEmail: target.email,
             ip: req.ip,
         });
+
+sendPasswordReset(
+  target.email,
+  target.display_name,
+  'http://localhost:5173'
+).catch(err => console.error('Email failed:', err.message));
 
         res.json({ message: 'Password reset flag set. User must change password on next login.' });
     } catch (err) {
