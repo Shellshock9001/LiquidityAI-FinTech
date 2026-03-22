@@ -1,4 +1,4 @@
-# DonnaAI — Phase 6: Production Readiness
+# Liquidity.ai — Phase 6: Production Readiness
 
 **Prerequisite:** All Phase 1–5 intern tasks completed and merged.  
 **Audience:** Senior engineering / DevOps (not interns).  
@@ -78,7 +78,7 @@ Cost estimate: $150-300/month at low traffic.
 
 ### 1.2 — Domain and SSL
 
-1. Register a domain (e.g., `donnaai.com`, `app.donnaai.com`)
+1. Register a domain (e.g., `Liquidity.ai.com`, `app.Liquidity.ai.com`)
 2. If using Railway: add custom domain in settings, Railway handles SSL automatically
 3. If using AWS:
    - Request an SSL certificate from AWS Certificate Manager (free)
@@ -93,7 +93,7 @@ Cost estimate: $150-300/month at low traffic.
    - Create a CloudFront distribution
    - Origin: S3 bucket containing the `dist/` files
    - Cache behavior: cache everything except `/api/*`
-   - Alternate domain: `app.donnaai.com`
+   - Alternate domain: `app.Liquidity.ai.com`
    - Attach the SSL certificate
 3. If using Railway/Render: CDN is optional at first — the platform serves static files fine for initial traffic. Add CloudFront or Cloudflare later.
 
@@ -104,7 +104,7 @@ Cost estimate: $150-300/month at low traffic.
    - AWS: duplicate the ECS service and RDS instance in a separate environment
 2. Staging should have its own database (clone of production schema, but with test data)
 3. All PRs deploy to staging first. Production deploys only from `main` branch.
-4. Staging URL: `staging.donnaai.com` or `staging-donnaai.up.railway.app`
+4. Staging URL: `staging.Liquidity.ai.com` or `staging-Liquidity.ai.up.railway.app`
 
 ---
 
@@ -131,9 +131,9 @@ jobs:
       postgres:
         image: postgres:16
         env:
-          POSTGRES_USER: donna_test
+          POSTGRES_USER: Liquidity.ai_test
           POSTGRES_PASSWORD: test_password
-          POSTGRES_DB: donnaai_test
+          POSTGRES_DB: Liquidity.ai_test
         ports:
           - 5432:5432
         options: >-
@@ -154,7 +154,7 @@ jobs:
 
       - name: Run backend tests
         env:
-          DATABASE_URL: postgresql://donna_test:test_password@localhost:5432/donnaai_test
+          DATABASE_URL: postgresql://Liquidity.ai_test:test_password@localhost:5432/Liquidity.ai_test
           JWT_SECRET: test-secret-key-for-ci
           JWT_REFRESH_SECRET: test-refresh-secret-for-ci
           NODE_ENV: test
@@ -187,7 +187,7 @@ jobs:
         uses: berviantoleo/railway-deploy@main
         with:
           railway_token: ${{ secrets.RAILWAY_TOKEN }}
-          service: donnaai-web
+          service: Liquidity.ai-web
 
       # For AWS: build Docker image, push to ECR, update ECS service
 ```
@@ -212,8 +212,8 @@ In GitHub repository settings:
 1. Create a manual snapshot before every major deployment:
    ```bash
    aws rds create-db-snapshot \
-     --db-instance-identifier donnaai-prod \
-     --db-snapshot-identifier donnaai-pre-deploy-$(date +%Y%m%d)
+     --db-instance-identifier Liquidity.ai-prod \
+     --db-snapshot-identifier Liquidity.ai-pre-deploy-$(date +%Y%m%d)
    ```
 
 2. Test restore quarterly: spin up a new RDS instance from the latest snapshot, verify data integrity, then delete the test instance.
@@ -226,17 +226,17 @@ In GitHub repository settings:
    TIMESTAMP=$(date +%Y%m%d_%H%M%S)
    BACKUP_DIR="/backups"
    
-   pg_dump -h localhost -U donna donnaai | gzip > "$BACKUP_DIR/donnaai_$TIMESTAMP.sql.gz"
+   pg_dump -h localhost -U Liquidity.ai Liquidity.ai | gzip > "$BACKUP_DIR/Liquidity.ai_$TIMESTAMP.sql.gz"
    
    # Upload to S3
-   aws s3 cp "$BACKUP_DIR/donnaai_$TIMESTAMP.sql.gz" \
-     s3://donnaai-backups/db/$TIMESTAMP.sql.gz
+   aws s3 cp "$BACKUP_DIR/Liquidity.ai_$TIMESTAMP.sql.gz" \
+     s3://Liquidity.ai-backups/db/$TIMESTAMP.sql.gz
    
    # Keep only last 30 local backups
-   ls -t $BACKUP_DIR/donnaai_*.sql.gz | tail -n +31 | xargs rm -f
+   ls -t $BACKUP_DIR/Liquidity.ai_*.sql.gz | tail -n +31 | xargs rm -f
    ```
 
-2. Schedule with cron: `0 2 * * * /opt/donnaai/scripts/backup-db.sh` (daily at 2 AM)
+2. Schedule with cron: `0 2 * * * /opt/Liquidity.ai/scripts/backup-db.sh` (daily at 2 AM)
 
 ### 3.2 — Migration Management
 
@@ -308,7 +308,7 @@ In GitHub repository settings:
 
 **Option A — Uptime monitoring (free):**
 - Use UptimeRobot (https://uptimerobot.com, free for 50 monitors)
-- Monitor `https://app.donnaai.com/api/health` every 5 minutes
+- Monitor `https://app.Liquidity.ai.com/api/health` every 5 minutes
 - Alert via email/Slack on downtime
 
 **Option B — Full APM (recommended for production):**
@@ -455,7 +455,7 @@ The intern task (5.4) builds the dashboard. To actually achieve SOC 2:
 ### 5.5 — Penetration Testing
 
 1. Before launch, run an automated security scan:
-   - Use OWASP ZAP (free, open-source): `docker run -t owasp/zap2docker-stable zap-baseline.py -t https://staging.donnaai.com`
+   - Use OWASP ZAP (free, open-source): `docker run -t owasp/zap2docker-stable zap-baseline.py -t https://staging.Liquidity.ai.com`
    - Fix any high or medium findings
 2. For a more thorough assessment, hire a pentest firm after MVP launch
 3. Common vulnerabilities to check manually:
@@ -685,7 +685,7 @@ Beyond the basic confidence_score from interns:
 2. Create `tests/load/basic.yml`:
    ```yaml
    config:
-     target: "https://staging.donnaai.com"
+     target: "https://staging.Liquidity.ai.com"
      phases:
        - duration: 60
          arrivalRate: 10   # 10 users/second for 60 seconds
@@ -697,7 +697,7 @@ Beyond the basic confidence_score from interns:
        flow:
          - post:
              url: "/api/auth/login"
-             json: { "email": "load-test@donnaai.com", "password": "..." }
+             json: { "email": "load-test@Liquidity.ai.com", "password": "..." }
              capture:
                - json: "$.accessToken"
                  as: "token"
@@ -743,7 +743,7 @@ Before the first production deployment, verify:
 - [ ] Uptime monitor configured
 - [ ] Database backups running and verified
 - [ ] `.env` file is in `.gitignore`
-- [ ] Default admin password changed from `DonnAI2026!`
+- [ ] Default admin password changed from `Liquidity.aiI2026!`
 - [ ] Rate limiting configured for production values
 - [ ] CORS origin set to production domain (not `*`)
 - [ ] Security scan (OWASP ZAP) run with no high-severity findings

@@ -1,18 +1,18 @@
-# DonnaAI — API & Data Licensing Cost Sheet
+# Liquidity.ai — API & Data Licensing Cost Sheet
 
-**Prepared:** March 2026 | **Purpose:** Pitch-ready breakdown of every external API/data source DonnaAI needs, what it costs, and why.
+**Prepared:** March 2026 | **Purpose:** Pitch-ready breakdown of every external API/data source Liquidity.ai needs, what it costs, and why.
 
 ---
 
 ## Executive Summary
 
-DonnaAI requires APIs across **three categories**: financial data sources (the fuel), AI/LLM services (the brain), and people/company enrichment (the connective tissue). Total annual cost ranges from **$7K (bootstrap)** to **$120K+ (enterprise-grade)** depending on data depth.
+Liquidity.ai requires APIs across **three categories**: financial data sources (the fuel), AI/LLM services (the brain), and people/company enrichment (the connective tissue). Total annual cost ranges from **$7K (bootstrap)** to **$120K+ (enterprise-grade)** depending on data depth.
 
 ---
 
 ## 1. Financial Data Sources
 
-These are the core data feeds that populate DonnaAI's knowledge graph with organizations, funds, people, and deals.
+These are the core data feeds that populate Liquidity.ai's knowledge graph with organizations, funds, people, and deals.
 
 ### Tier A — Premium (Gold Standard)
 
@@ -21,7 +21,7 @@ These are the core data feeds that populate DonnaAI's knowledge graph with organ
 | **PitchBook** | 3.4M+ companies, VC/PE deals, fund data, LP commitments, valuations | **$54K–$100K+** | Most comprehensive private market dataset. Covers the full investment chain: firms → funds → deals → LPs. Required for serious institutional credibility. |
 | **Dealroom** | 2M+ companies, EU-focused deal flow, startup ecosystem data | **$15K–$40K** (est.) | Strongest European coverage. Essential if serving cross-border investors or EU-focused family offices. |
 
-> **Verdict:** PitchBook alone could be sufficient for US-focused MVP. Add Dealroom for global coverage. These are the datasets that make DonnaAI valuable — without them, the graph is empty.
+> **Verdict:** PitchBook alone could be sufficient for US-focused MVP. Add Dealroom for global coverage. These are the datasets that make Liquidity.ai valuable — without them, the graph is empty.
 
 ### Tier B — Mid-Range (Solid Alternatives)
 
@@ -45,7 +45,7 @@ These are the core data feeds that populate DonnaAI's knowledge graph with organ
 
 ## 2. AI / LLM APIs
 
-These power entity extraction, data classification, enrichment, and entity resolution. DonnaAI routes tasks to the right model based on complexity vs. cost.
+These power entity extraction, data classification, enrichment, and entity resolution. Liquidity.ai routes tasks to the right model based on complexity vs. cost.
 
 ### Primary Models
 
@@ -163,6 +163,6 @@ LinkedIn is the richest source for people/org relationships, but access is heavi
 | 🥉 | Set up OpenAI API (GPT-4o mini) | ~$50/mo | Powers entity extraction, classification, and resolution at pennies per record. |
 | 4 | Add Apollo.io Basic | $49/mo | People enrichment — partner names, titles, org affiliations. Fills the "who" gap. |
 | 5 | Upgrade to Crunchbase Enterprise | When revenue > $5K/mo | Full API access for automated ingestion pipeline. |
-| 6 | Add PitchBook API | When revenue > $10K/mo | This is the inflection point where DonnaAI becomes enterprise-grade. |
+| 6 | Add PitchBook API | When revenue > $10K/mo | This is the inflection point where Liquidity.ai becomes enterprise-grade. |
 
 > **Day-one minimum spend: ~$98/month ($1,176/year)** — Crunchbase Pro + OpenAI + Apollo.io. Everything else scales with revenue.
