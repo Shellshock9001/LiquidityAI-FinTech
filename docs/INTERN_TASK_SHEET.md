@@ -1,7 +1,7 @@
-# DonnaAI — Intern Task Board
+# Liquidity.ai — Intern Task Board
 
 **Version:** 1.0 | **Date:** March 2026 | **Lead:** Gus  
-**Repository:** `https://github.com/Shellshock9001/DonnaAI-FinTech/`
+**Repository:** `https://github.com/Shellshock9001/Liquidity.ai-FinTech/`
 
 
 ---
@@ -173,9 +173,9 @@ Before you touch any code, understand what already works and what does not.
      postgres:
        image: postgres:16
        environment:
-         POSTGRES_USER: donna
-         POSTGRES_PASSWORD: donna_dev_2026
-         POSTGRES_DB: donnaai
+         POSTGRES_USER: Liquidity.ai
+         POSTGRES_PASSWORD: Liquidity.ai_dev_2026
+         POSTGRES_DB: Liquidity.ai
        ports:
          - "5432:5432"
        volumes:
@@ -189,7 +189,7 @@ Before you touch any code, understand what already works and what does not.
 4. Open `server/db.js`. This is the main file you will modify. Currently it imports `better-sqlite3` on line 1. You need to:
    - Replace `import Database from 'better-sqlite3'` with `import pg from 'pg'`
    - Create a connection pool: `const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL })`
-   - Add `DATABASE_URL=postgresql://donna:donna_dev_2026@localhost:5432/donnaai` to `.env`
+   - Add `DATABASE_URL=postgresql://Liquidity.ai:Liquidity.ai_dev_2026@localhost:5432/Liquidity.ai` to `.env`
 
 5. The hardest part: convert every query. SQLite and PostgreSQL have syntax differences.
 
@@ -233,7 +233,7 @@ Before you touch any code, understand what already works and what does not.
 
 **How to verify before submitting:**
 - `npm run dev` starts without errors
-- You can log in with `donna@donnaai.com` / `DonnAI2026!`
+- You can log in with `Liquidity.ai@Liquidity.ai.com` / `Liquidity.aiI2026!`
 - Create a new user via registration, approve them, log in as them
 - Check Settings page: Team, Approvals, Sessions, API Keys, Policies all load
 - Audit log shows entries
@@ -300,7 +300,7 @@ Before you touch any code, understand what already works and what does not.
    # Get a JWT token first
    curl -X POST http://localhost:3001/api/auth/login \
      -H "Content-Type: application/json" \
-     -d '{"email":"donna@donnaai.com","password":"DonnAI2026!"}'
+     -d '{"email":"Liquidity.ai@Liquidity.ai.com","password":"Liquidity.aiI2026!"}'
    
    # Use the token to create an org
    curl -X POST http://localhost:3001/api/orgs \
@@ -1108,7 +1108,7 @@ Before you touch any code, understand what already works and what does not.
      it('should return tokens for valid credentials', async () => {
        const res = await request(app)
          .post('/api/auth/login')
-         .send({ email: 'donna@donnaai.com', password: 'DonnAI2026!' });
+         .send({ email: 'Liquidity.ai@Liquidity.ai.com', password: 'Liquidity.aiI2026!' });
        
        expect(res.status).toBe(200);
        expect(res.body).toHaveProperty('accessToken');
@@ -1119,7 +1119,7 @@ Before you touch any code, understand what already works and what does not.
      it('should return 401 for wrong password', async () => {
        const res = await request(app)
          .post('/api/auth/login')
-         .send({ email: 'donna@donnaai.com', password: 'wrongpassword' });
+         .send({ email: 'Liquidity.ai@Liquidity.ai.com', password: 'wrongpassword' });
        
        expect(res.status).toBe(401);
        expect(res.body).toHaveProperty('error');
@@ -1128,7 +1128,7 @@ Before you touch any code, understand what already works and what does not.
      it('should return 400 for missing email', async () => {
        const res = await request(app)
          .post('/api/auth/login')
-         .send({ password: 'DonnAI2026!' });
+         .send({ password: 'Liquidity.aiI2026!' });
        
        expect(res.status).toBe(400);
      });
@@ -1154,8 +1154,8 @@ Before you touch any code, understand what already works and what does not.
    
    test('login with valid credentials', async ({ page }) => {
      await page.goto('http://localhost:5173');
-     await page.fill('[placeholder="Email"]', 'donna@donnaai.com');
-     await page.fill('[placeholder="Password"]', 'DonnAI2026!');
+     await page.fill('[placeholder="Email"]', 'Liquidity.ai@Liquidity.ai.com');
+     await page.fill('[placeholder="Password"]', 'Liquidity.aiI2026!');
      await page.click('button[type="submit"]');
      await expect(page.getByText('Knowledge Graph Overview')).toBeVisible({ timeout: 5000 });
    });

@@ -1,4 +1,4 @@
-# DonnaAI — Task Review and Verification Guide
+# Liquidity.ai — Task Review and Verification Guide
 
 **For:** Project Lead (Gus)  
 **Purpose:** How to verify every intern task submission before approving the PR.
@@ -31,12 +31,12 @@ For every PR, check these first:
 5. Check indexes exist on: foreign keys, `legal_name`, `investor_type_tags`, `hq_country`
 6. Run the migration against a test PostgreSQL:
    ```bash
-   docker exec -i donna-postgres psql -U donna -d donnaai < server/migrations/001_core_entities.sql
+   docker exec -i Liquidity.ai-postgres psql -U Liquidity.ai -d Liquidity.ai < server/migrations/001_core_entities.sql
    ```
    It should complete without errors.
 7. Run seed data:
    ```bash
-   docker exec -i donna-postgres psql -U donna -d donnaai < server/migrations/seed_sample_data.sql
+   docker exec -i Liquidity.ai-postgres psql -U Liquidity.ai -d Liquidity.ai < server/migrations/seed_sample_data.sql
    ```
 8. Verify seed data has at least 50 records across all tables
 9. Run a test query:
@@ -65,12 +65,12 @@ For every PR, check these first:
 3. Confirm `.env.example` has `DATABASE_URL`
 4. Start fresh:
    ```bash
-   rm -rf data/donna.db
+   rm -rf data/Liquidity.ai.db
    docker compose up postgres -d
    npm run dev
    ```
 5. Server should start without errors
-6. Login: `donna@donnaai.com` / `DonnAI2026!` — should work
+6. Login: `Liquidity.ai@Liquidity.ai.com` / `Liquidity.aiI2026!` — should work
 7. Register a new user — should work
 8. Approve the new user in Settings > Approvals — should work
 9. Check Settings > Sessions — should show your active session

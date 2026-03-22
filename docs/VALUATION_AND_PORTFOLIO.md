@@ -1,4 +1,4 @@
-# DonnaAI — Platform Valuation, Build Cost Analysis & Portfolio Strategy
+# Liquidity.ai — Platform Valuation, Build Cost Analysis & Portfolio Strategy
 
 ---
 
@@ -128,7 +128,7 @@ If someone wanted to build the complete platform with all the intelligence modul
 | **Pitchbook** (financial data) | Financial data + analytics | $20K–$100K/yr per seat |
 | **Auth0** (auth only) | Authentication as a service | $2K–$15K/yr |
 
-### What DonnaAI Is Worth
+### What Liquidity.ai Is Worth
 
 | Valuation Method | Value | Reasoning |
 |-----------------|:-----:|-----------|
@@ -156,11 +156,11 @@ Sell the **auth/RBAC/user management system** as a reusable starter kit for SaaS
 
 ### Option B: Custom Platform Development ($15,000 – $50,000 per client)
 
-Use DonnaAI as a **live portfolio piece** on Upwork to win contracts building similar platforms. You show the demo → client gets confidence → you build their version.
+Use Liquidity.ai as a **live portfolio piece** on Upwork to win contracts building similar platforms. You show the demo → client gets confidence → you build their version.
 
 ### Option C: Consulting + Building ($100 – $150/hr)
 
-Offer to build fintech/data platforms using DonnaAI's architecture as your proven foundation.
+Offer to build fintech/data platforms using Liquidity.ai's architecture as your proven foundation.
 
 ---
 
@@ -180,7 +180,7 @@ Below is the exact text you can use:
 
 I build **production-grade SaaS platforms** with enterprise security from day one — not MVP prototypes that need to be rewritten later.
 
-**🔐 My Latest Build — DonnaAI (Financial Intelligence Graph)**
+**🔐 My Latest Build — Liquidity.ai (Financial Intelligence Graph)**
 
 A full-stack financial intelligence platform with:
 
@@ -223,7 +223,7 @@ A full-stack financial intelligence platform with:
 
 ### UPWORK PORTFOLIO PIECE:
 
-**Project Title:** DonnaAI — Enterprise Financial Intelligence Platform
+**Project Title:** Liquidity.ai — Enterprise Financial Intelligence Platform
 
 **Category:** Web Development → Full Stack Development
 
@@ -240,7 +240,7 @@ Built a full-stack financial intelligence platform featuring enterprise-grade se
 
 | Priority | Action | Time | Impact |
 |:--------:|--------|:----:|--------|
-| 🔴 | Post Upwork profile with DonnaAI as portfolio piece | 30 min | Start attracting clients |
+| 🔴 | Post Upwork profile with Liquidity.ai as portfolio piece | 30 min | Start attracting clients |
 | 🔴 | Record a 2-minute screen recording walking through the app | 15 min | 10x more Upwork responses |
 | 🟡 | Create a Gumroad listing for the auth/RBAC boilerplate | 1 hr | Passive income ($3K-8K/sale) |
 | 🟡 | Deploy to a free tier (Railway/Render) for a live demo link | 30 min | Clients can try it themselves |
@@ -252,10 +252,10 @@ Built a full-stack financial intelligence platform featuring enterprise-grade se
 
 | Project Type | Your Price | Your Time | Your Margin |
 |-------------|:---------:|:---------:|:-----------:|
-| Simple CRUD app with auth | $4,000 – $6,000 | 2-3 weeks | High (use DonnaAI as base) |
+| Simple CRUD app with auth | $4,000 – $6,000 | 2-3 weeks | High (use Liquidity.ai as base) |
 | Dashboard + admin panel | $6,000 – $10,000 | 3-4 weeks | High (clone pattern) |
 | Full SaaS platform (auth + RBAC + billing) | $12,000 – $20,000 | 6-8 weeks | Medium |
-| Enterprise data platform (like DonnaAI full) | $25,000 – $50,000 | 3-4 months | Medium |
+| Enterprise data platform (like Liquidity.ai full) | $25,000 – $50,000 | 3-4 months | Medium |
 | Financial/compliance platform | $30,000 – $60,000 | 4-6 months | High (niche premium) |
 
-> **Pro tip:** Never quote by the hour on Upwork — quote by deliverable. Your DonnaAI foundation means you can build a $15K app in 60 hours instead of 200, but the client pays for the value, not your speed.
+> **Pro tip:** Never quote by the hour on Upwork — quote by deliverable. Your Liquidity.ai foundation means you can build a $15K app in 60 hours instead of 200, but the client pays for the value, not your speed.
