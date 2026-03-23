@@ -12,7 +12,7 @@ This task covers the responsive design implementation and mobile testing for the
 |---|---|
 | `Media Mobile.css` | Main stylesheet with all responsive media queries |
 | `test.html` | Test page with all 5 pages (Dashboard, Views, Graph, Pipeline, Login) for browser testing |
-| `Screenshots/` | Screenshots at each breakpoint for all major pages |
+| `docs/responsive` | Screenshots at each breakpoint for all major pages |
 
 ---
 
