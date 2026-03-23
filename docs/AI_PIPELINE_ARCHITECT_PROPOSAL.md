@@ -10,7 +10,7 @@ Hi — this is exactly what I build. I've designed and shipped production LLM pi
 
 ## Relevant Experience
 
-I built **DonnaAI**, a financial intelligence platform that does at its core what you're describing:
+I built **Liquidity.ai**, a financial intelligence platform that does at its core what you're describing:
 
 **Entity Classification Pipeline** — Ingests raw data from multiple sources, preprocesses it, and routes it through an LLM-based classification engine that assigns entity types (Organization, Person, Fund, Deal) with confidence scores and reasoning. Same pattern as your lawyer / business user / consumer segmentation — different domain, identical architecture.
 

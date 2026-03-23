@@ -1,6 +1,6 @@
-# DonnaAI — Live Demo Presentation Guide
+# Liquidity.ai — Live Demo Presentation Guide
 
-> **For:** Executive presentation to demonstrate the DonnaAI Financial Intelligence Graph platform.
+> **For:** Executive presentation to demonstrate the Liquidity.ai Financial Intelligence Graph platform.
 > Use this guide alongside the workflow images in this folder.
 
 ---
@@ -11,7 +11,7 @@
 **Image:** `01_platform_overview.png`
 
 **Key Points:**
-- Donna aggregates financial data from **5+ sources** (PitchBook, SEC EDGAR, LinkedIn, Crunchbase, CSV/Excel)
+- Liquidity.ai aggregates financial data from **5+ sources** (PitchBook, SEC EDGAR, LinkedIn, Crunchbase, CSV/Excel)
 - Data flows through an **8-stage ingestion pipeline** — from raw to canonical
 - The core platform has three engines: **Knowledge Graph**, **Entity Resolution**, and **LLM Orchestrator**
 - Everything sits on top of an enterprise **security layer** with RBAC, risk scoring, and audit logging
@@ -29,10 +29,10 @@
 - **Account lockout** after 5 failed attempts — prevents brute force attacks
 - **Session tracking** — every login records IP address, device, and user agent
 - **Rate limiting** — 10 auth attempts per 15 minutes, 100 API calls per minute
-- **API keys** — scoped, hashed, and prefixed (`donna_sk_`) for programmatic access
+- **API keys** — scoped, hashed, and prefixed (`Liquidity.ai_sk_`) for programmatic access
 - **Every action logged** — immutable audit trail with actor, target, IP, timestamp
 
-**Demo Action:** Log in as DonnaAI → open Profile Panel → show the Sessions tab with IP addresses.
+**Demo Action:** Log in as Liquidity.ai → open Profile Panel → show the Sessions tab with IP addresses.
 
 ---
 
@@ -109,7 +109,7 @@
 | Time | Action | What to Show |
 |------|--------|-------------|
 | 0:00 | Open `http://localhost:5173` | Login page |
-| 0:30 | Log in as DonnaAI | Dashboard loads with full admin view |
+| 0:30 | Log in as Liquidity.ai | Dashboard loads with full admin view |
 | 1:00 | Walk through Dashboard | Entity counts, pipeline status, HITL queue |
 | 2:00 | Click Knowledge Graph | Graph visualization, entity inspector |
 | 3:00 | Click Ingestion Pipeline | 8-stage pipeline, source configs, run history |

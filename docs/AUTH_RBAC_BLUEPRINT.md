@@ -328,7 +328,7 @@ User Deleted  ──► CASCADE delete sessions                    ──► Gon
 POST /api/api-keys { name: "CI Pipeline", scopes: ["read", "write"] }
        │
        ▼
-Generate: donna_sk_ + 32 random hex chars
+Generate: Liquidity.ai_sk_ + 32 random hex chars
        │
        ├── Return full key to user (SHOWN ONCE, never stored)
        ├── Store SHA-256 hash in api_keys table
@@ -338,8 +338,8 @@ Generate: donna_sk_ + 32 random hex chars
 ### Key Format
 
 ```
-donna_sk_a1b2c3d4e5f6...  (full key — user sees this once)
-donna_sk_a1b2c3d4...       (prefix — shown in dashboard for identification)
+Liquidity.ai_sk_a1b2c3d4e5f6...  (full key — user sees this once)
+Liquidity.ai_sk_a1b2c3d4...       (prefix — shown in dashboard for identification)
 SHA-256(full_key)           (hash — stored in database)
 ```
 
@@ -612,4 +612,4 @@ Replace `better-sqlite3` with `pg`:
 
 ---
 
-*Built with ❤️ by the DonnaAI team. Every line audited. Every decision documented.*
+*Built with ❤️ by the Liquidity.ai team. Every line audited. Every decision documented.*
