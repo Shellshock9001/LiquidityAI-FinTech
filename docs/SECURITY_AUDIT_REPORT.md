@@ -1,4 +1,4 @@
-# DonnaAI Security Audit Report
+# Liquidity.ai Security Audit Report
 
 **Audited:** March 5, 2026
 **Scope:** Authentication, RBAC, Session Management, API Key Management, Risk Scoring, Audit Logging, Database Schema
@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The DonnaAI security layer is **not boilerplate**. After auditing every line of backend code (~1,600 lines across 8 files), this implementation follows patterns used by companies processing millions of dollars in daily transactions. Below is a line-by-line audit with professional grading.
+The Liquidity.ai security layer is **not boilerplate**. After auditing every line of backend code (~1,600 lines across 8 files), this implementation follows patterns used by companies processing millions of dollars in daily transactions. Below is a line-by-line audit with professional grading.
 
 ---
 

@@ -1,0 +1,6 @@
+error: pathspec 'chore:' did not match any file(s) known to git
+error: pathspec 'update' did not match any file(s) known to git
+error: pathspec 'lockfile' did not match any file(s) known to git
+error: pathspec 'for' did not match any file(s) known to git
+error: pathspec 'liquidity.ai' did not match any file(s) known to git
+error: pathspec 'rebranding\ ' did not match any file(s) known to git
