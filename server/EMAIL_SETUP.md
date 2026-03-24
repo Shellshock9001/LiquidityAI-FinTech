@@ -149,3 +149,22 @@ The .env file is never committed to GitHub. Each developer needs their own .env 
 ### Emails fail silently
 
 Email sending uses .catch() instead of await so a failed email never breaks the main API response. Errors are logged to the server console. In production consider connecting these errors to a logging service.
+
+## Email Logging
+
+Every email sent or failed is automatically recorded in the email_log table in the database.
+
+The table stores:
+
+- id - unique record ID
+- to_address - recipient email
+- subject - email subject line
+- template - which template was used
+- status - either sent or failed
+- error - error message if failed, null if successful
+- sent_at - timestamp of when it was attempted
+
+To query the log directly:
+
+    node -e "import('./server/db.js').then(m => { const logs = m.db.prepare('SELECT * FROM email_log ORDER BY sent_at DESC').all(); console.log(JSON.stringify(logs, null, 2)); })"
+
