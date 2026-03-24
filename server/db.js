@@ -125,6 +125,16 @@ db.exec(`
     used INTEGER DEFAULT 0,
     used_at TEXT,
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
+ );
+
+  CREATE TABLE IF NOT EXISTS email_log (
+    id TEXT PRIMARY KEY,
+    to_address TEXT NOT NULL,
+    subject TEXT NOT NULL,
+    template TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'sent',
+    error TEXT DEFAULT NULL,
+    sent_at TEXT NOT NULL DEFAULT (datetime('now'))
   );
 
   CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
